@@ -1,11 +1,15 @@
 import React from "react";
-import ReactDOM from "react-dom";
+import { Provider } from 'react-redux';
+import store from './store/store';
+import PageItems from './components/items/page-items';
+
+
 const App = () => {
   return (
-    <div>
-      <p>React here!</p>
-    </div>
+    <Provider store={store}>
+  <PageItems />
+  </Provider>
+   
   );
 };
 export default App;
-ReactDOM.render(<App />, document.getElementById("app"));
