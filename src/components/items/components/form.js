@@ -1,6 +1,6 @@
 import React from 'react';
 import store from '../../../store/store';
-
+import { Link } from 'react-router-dom'
 
 class FormItem extends React.Component {
 
@@ -45,6 +45,7 @@ class FormItem extends React.Component {
 
     render() {
         return (<div>
+               <Link to="/login">Sandwiches</Link>
             <label for="nombre">Nombre</label>
             <input onChange={(e) => this.syncField(e, 'nombre')}
                 value={this.state.nombre}

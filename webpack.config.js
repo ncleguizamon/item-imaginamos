@@ -33,6 +33,12 @@ module.exports = {
     new MiniCssExtractPlugin({
       filename: "[name].css",
       chunkFilename: "[id].css"
-    })
-  ]
+    }),
+    
+  ],
+  optimization: {
+    minimizer: [new UglifyJsPlugin({
+      parallel: true
+    })]
+  }
 };
