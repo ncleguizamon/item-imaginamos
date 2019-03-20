@@ -13,8 +13,6 @@ import PageLogin from './components/login/page-login';
 
 function AppRouter() {
   return (
-
-
     <div>
        <Switch>
        <PrivateRoute  exact  path="/" component={PageItems} />

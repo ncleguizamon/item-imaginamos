@@ -22,8 +22,20 @@ module.exports = {
       {
         test: /\.css$/,
         use: [MiniCssExtractPlugin.loader, "css-loader"]
-      }
+      },
+      {
+                test: /\.(png|svg|jpg|gif)$/,
+               use: [
+                 'file-loader'
+             ]
+             }
+      
     ]
+  },
+  devServer: {
+    historyApiFallback: {
+      disableDotRule: true
+    }
   },
   plugins: [
     new HtmlWebPackPlugin({
@@ -34,11 +46,5 @@ module.exports = {
       filename: "[name].css",
       chunkFilename: "[id].css"
     }),
-    
-  ],
-  optimization: {
-    minimizer: [new UglifyJsPlugin({
-      parallel: true
-    })]
-  }
+  ]
 };

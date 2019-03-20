@@ -4,6 +4,7 @@ import reducer from '../reducers/app';
 
 const store = createStore(reducer, {
   Items: [],
+  Users:[], 
   token_auth: '',
 })
 

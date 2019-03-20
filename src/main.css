@@ -1,3 +1,46 @@
 body {
-    line-height: 2;
+   margin: 0 auto;
+  background-image: url('./assets/13478.jpg');
+ 
+ 
+ background-repeat: no-repeat;
+ background-size: 100% 720px;
+
+}
+
+.container {
+width:  500px;
+height: 400px;
+text-align: center;
+background-color: rgb(104, 186, 213 , 0.7);
+border-radius: 4px;
+margin: 0 auto;
+margin-top: 150px;
+}
+
+
+.container img {
+    width: 120px;
+    height: 120px;
+    margin-top: -60px;
+    margin-bottom: 30px;
+
+}
+input {
+    height: 45px;
+    width: 300px;
+    font-size: 18px;
+    margin-bottom: 20px;
+    background-color: #fff;
+    padding-left: 40px;
+}
+
+.btn-login{
+    padding: 15ox  30px;
+    color: #fff;
+    border-radius: 4px;
+    border: none;
+    background-color: #2ECC71;
+    border-bottom: 4px solid #27AE60;
+    margin-bottom: 20px;
 }

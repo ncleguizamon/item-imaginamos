@@ -46,16 +46,16 @@ class FormItem extends React.Component {
     render() {
         return (<div>
                <Link to="/login">Sandwiches</Link>
-            <label for="nombre">Nombre</label>
+            <label htmlFor="nombre">Nombre</label>
             <input onChange={(e) => this.syncField(e, 'nombre')}
                 value={this.state.nombre}
                 name="nombre" id="nombre" />
-            <label for="descripcion">descripcion</label>
+            <label htmlFor="descripcion">descripcion</label>
             <textarea onChange={(e) => this.syncField(e, 'descripcion')}
                 name="descripcion" id="descripcion">
                 {this.state.descripcion}
             </textarea> <br></br>
-            <label for="cantidad">cantidad</label>
+            <label htmlFor="cantidad">cantidad</label>
             <input value={this.state.cantidad}
                 onChange={(e) => this.syncField(e, 'cantidad')}
                 type="number" name="cantidad" id="cantidad" />

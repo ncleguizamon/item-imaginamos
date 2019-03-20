@@ -7,8 +7,13 @@ function items(state = {}, action) {
       Items: [...state.Items, action.payload]
       }
     }
-     
-
+    case 'ADD_USER':{
+      return  { 
+        ...state,
+        Users: [...state.Items, action.payload]
+        }
+   }
+  
 
      
       default:
