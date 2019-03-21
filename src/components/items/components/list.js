@@ -6,6 +6,30 @@ function mapSteToProps(state) {
     return { Items: state.Items }
 }
 
+
+const Styles={
+    btn:{
+        backgroundColor: '#6ce6bd', /* Green */
+        border: 'none',
+        color: 'white',
+        padding: '15px 32px',
+        textAlign: 'center',
+        textDecoration: 'none',
+        display: 'inline-block',
+        fontSize: '16px',
+    },
+    btnDanger:{
+        backgroundColor: 'red', /* Green */
+        border: 'none',
+        color: 'white',
+        padding: '15px 32px',
+        textAlign: 'center',
+        textDecoration: 'none',
+        display: 'inline-block',
+        fontSize: '16px',
+    }
+}
+
 class ListItems extends React.Component {
 
     delete(index){
@@ -31,8 +55,8 @@ class ListItems extends React.Component {
                     <td>{row.nombre}</td>
                     <td>{row.descripcion}</td>
                     <td>{row.cantidad}</td>
-                    <td> <button onClick={()=>this.delete(index)} className="fas fa-trash-alt" >Eliminar</button>
-                    <button onClick={()=>this.getId(index)} className="fas fa-trash-alt" >consultar</button> </td>
+                    <td> <button style={Styles.btnDanger} onClick={()=>this.delete(index)} className="fas fa-trash-alt" >Eliminar</button>
+                    <button  style={Styles.btn} onClick={()=>this.getId(index)} className="fas fa-trash-alt" >consultar</button> </td>
                 </tr>
             );
         });
