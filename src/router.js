@@ -7,7 +7,7 @@ import {
 import PrivateRoute from './helpers/privateRoute';
 // importar componentes
 import PageItems from './components/items/page-items';
-import PageLogin from './components/login/page-login';
+import PageLogin from './components/login/components/login';
 
 
 
@@ -20,11 +20,7 @@ function AppRouter() {
       <Route component={NoMatch} />
 
        </Switch>
-      
     </div>
-
-
-
   );
 }
 

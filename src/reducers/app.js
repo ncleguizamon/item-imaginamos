@@ -10,9 +10,12 @@ function items(state = {}, action) {
     case 'ADD_USER':{
       return  { 
         ...state,
-        Users: [...state.Items, action.payload]
+        Users: [...state.Users, action.payload]
         }
    }
+   case 'ADD_AUTH':{
+    return{...state, ...action.payload}
+ }
   
 
      
