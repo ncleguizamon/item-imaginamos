@@ -1,35 +1,48 @@
 import React from 'react';
 import store from '../../../store/store';
-import { Link } from 'react-router-dom'
+import { connect } from 'react-redux';
+
+
+function mapSteToProps(state) {
+    return { Item: state.Item[0] , itemUdate: state.itemUdate }
+}
 
 class FormItem extends React.Component {
-
-
 
     constructor(props) {
         super(props);
         this.state = {
-            nombre: '',
+            nombre: this.props.Item.nombre,
             descripcion: '',
             cantidad: 0
 
         }
     }
 
+
+   
     syncField(ev, fieldName) { // data form
         let element = ev.target;
         let value = element.value;
         let jsonState = {};
         jsonState[fieldName] = value;
-        console.log(jsonState)
         this.setState(jsonState);
     }
 
     addItems() {
         store.dispatch({
             type: 'ADD_ITEM',
-            payload: { nombre: this.state.nombre, descripcion: this.state.descripcion, cantidad: this.state.cantidad }
+            payload: { nombre: this.state.nombre|| this.props.Item.nombre, descripcion: this.state.descripcion || this.props.Item.descripcion, cantidad: this.state.cantidad || this.props.Item.cantidad }
         })
+ this.clearData();
+    }
+
+    update() {
+        store.dispatch({
+            type: 'UPDATE_ITEM',
+            payload:{ nombre: this.state.nombre|| this.props.Item.nombre, descripcion: this.state.descripcion || this.props.Item.descripcion, cantidad: this.state.cantidad || this.props.Item.cantidad }
+        })
+        
  this.clearData();
     }
 
@@ -45,24 +58,28 @@ class FormItem extends React.Component {
 
     render() {
         return (<div>
-               <Link to="/login">Sandwiches</Link>
-            <label htmlFor="nombre">Nombre</label>
-            <input onChange={(e) => this.syncField(e, 'nombre')}
-                value={this.state.nombre}
-                name="nombre" id="nombre" />
-            <label htmlFor="descripcion">descripcion</label>
-            <textarea onChange={(e) => this.syncField(e, 'descripcion')}
-                name="descripcion" id="descripcion">
-                {this.state.descripcion}
-            </textarea> <br></br>
-            <label htmlFor="cantidad">cantidad</label>
-            <input value={this.state.cantidad}
-                onChange={(e) => this.syncField(e, 'cantidad')}
-                type="number" name="cantidad" id="cantidad" />
-            <button onClick={() => this.addItems()} > Añadir </button>
+                    <label>
+                        Nombre:
+                                <input onChange={(e) => this.syncField(e, 'nombre')}
+                                    value={this.state.nombre || this.props.Item.nombre}
+                                    name="nombre" id="nombre" />
+                    </label>
+                <label>
+                Descripcion:
+                 <textarea onChange={(e) => this.syncField(e, 'descripcion')}
+                                name="descripcion" id="descripcion" value={this.state.descripcion || this.props.Item.descripcion} /> 
+                            </label>
+                        <label>
+                        cantidad:
+                        <input value={this.state.cantidad || this.props.Item.cantidad}
+                            onChange={(e) => this.syncField(e, 'cantidad')}
+                            type="number" name="cantidad" id="cantidad" />
+                            </label>
+                            {this.props.itemUdate?<button onClick={() => this.update()} >Editar </button>: <button onClick={() => this.addItems()} > Añadir </button>}
+            
         </div>
         );
     }
 }
 
-export default FormItem;
+export default connect(mapSteToProps)(FormItem);

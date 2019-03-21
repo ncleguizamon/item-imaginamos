@@ -143,6 +143,9 @@ class Login extends React.Component {
 
     render() {
         return (
+            <div className="body-login">
+
+         
             <div className="container">
                 <img src={imgLogo}></img>
                 {this.state.MSG.accion ? (<p>{this.state.MSG.Msg}</p>) : ''}
@@ -167,7 +170,7 @@ class Login extends React.Component {
 
                 <a onClick={() => this.updateAccion()}>{this.state.accion ? 'Registrarme' : 'ya tengo cuenta...'}</a>
             </div>
-
+            </div>
 
         );
     }
